@@ -1,12 +1,12 @@
-# Analyzing the Causes of User Growth Slowdown and Elevated Churn
+# NexLoom Business Case: Analyzing the Causes of User Growth Slowdown and Elevated Churn
 
 ## Executive Summary
-This project provides a comprehensive analytics solution to identify the root causes behind slowing user growth and rising churn at PulseStack Technologies. Using MySQL Workbench for data cleaning and transformation and Power BI for visualization and insight generation, the project analyzes user behavior, subscriptions, engagement, and support interactions.
+This project provides a comprehensive analytics solution to identify the root causes behind slowing user growth and rising churn at NexLoom. NexLoom is a B2B SaaS knowledge-base + AI search platform used by mid-market teams to centralize documentation and support internal discovery. Using MySQL Workbench for data cleaning and transformation and Power BI for visualization and insight generation, the project analyzes user behavior, subscriptions, engagement, and support interactions.
 
-The solution enables PulseStack’s product and leadership teams to understand who is churning, why they are churning, and where growth friction exists, allowing for data-driven product and retention strategies.
+The solution enables NexLoom’s product and leadership teams to understand who is churning, why they are churning, and where growth friction exists, allowing for data-driven product and retention strategies.
 
 ## Business Problem
-PulseStack has experienced:
+NexLoom has experienced:
 - Slowing pace of new user growth
 - An increase in monthly churn rate
 - Declining engagement among previously active users

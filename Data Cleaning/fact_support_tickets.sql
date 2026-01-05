@@ -4,18 +4,14 @@ SELECT * FROM nexloom_analytics.fact_support_tickets;
                                   #################################################### FACT TABLE ####################################################
 
 -- CLEANING THE "USAGE EVENTS" TABLE TO ENSURE PROPER DATA QUALITY --
-CREATE TABLE fact_support_tickets_cleaned AS 
+CREATE VIEW fact_support_tickets_cleaned AS 
 SELECT 
 -- TICKET ID --
 	TRIM(UPPER(ï»¿ticket_id)) as ticket_id,
     
 -- USER ID --
-	TRIM(UPPER(
-		CASE
-		  WHEN TRIM(user_id) LIKE 'USR-%'
-			THEN CONCAT('U1', SUBSTRING(TRIM(user_id), 7))
-		  ELSE TRIM(user_id) END))  
-	AS user_id, 
+    CONCAT('U', ROW_NUMBER() OVER (ORDER BY user_id)) AS user_id,
+    user_id AS old_user_id,
     
 -- CATEGORY --
 	category, 
@@ -133,28 +129,28 @@ FROM nexloom_analytics.fact_support_tickets;
 
 -- CREATING A DIMENSION TABLE FOR TICKET TYPES --
 
-CREATE TABLE dim_ticket_category AS 
+CREATE VIEW dim_ticket_category AS 
 SELECT DISTINCT category
 FROM fact_support_tickets 
 WHERE category <> '';
 
 -- CREATING A DIMENSION TABLE FOR TICKET PRIOTITY --
 
-CREATE TABLE dim_ticket_priority AS 
+CREATE VIEW dim_ticket_priority AS 
 SELECT DISTINCT priority
 FROM fact_support_tickets 
 WHERE priority <> '';
 
 -- CREATING A DIMENSION TABLE FOR TICKET STATUS --
 
-CREATE TABLE dim_status_tickets AS 
+CREATE VIEW dim_status_tickets AS 
 SELECT DISTINCT LOWER(status) AS status
 FROM fact_support_tickets 
 WHERE status <> '';
 
 -- CREATING A DIMENSION TABLE FOR SUPPORT CHANNEL --
 
-CREATE TABLE dim_channels AS 
+CREATE VIEW dim_channels AS 
 SELECT DISTINCT TRIM(support_channel) AS support_channel
 FROM fact_support_tickets
 WHERE TRIM(support_channel) <> ''
@@ -162,7 +158,7 @@ WHERE TRIM(support_channel) <> ''
 
 -- CREATING A DIMENSION TABLE FOR SENTIMENT --
 
-CREATE TABLE dim_sentiments AS 
+CREATE VIEW dim_sentiments AS 
 SELECT DISTINCT TRIM(sentiment) AS sentiment
 FROM fact_support_tickets
 WHERE TRIM(sentiment) <> ''

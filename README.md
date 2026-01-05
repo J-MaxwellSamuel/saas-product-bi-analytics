@@ -1,5 +1,5 @@
-# NexLoom Business Case: 
-## Analyzing the Causes of User Growth Slowdown and Elevated Churn
+# Business Case: 
+## Analyzing the Causes of User Growth Slowdown and Elevated Churn at NexLoom
 
 ## Executive Summary
 This project provides a comprehensive analytics solution to identify the root causes behind slowing user growth and rising churn at NexLoom. NexLoom is a B2B SaaS knowledge-base + AI search platform used by mid-market teams to centralize documentation and support internal discovery. Using MySQL Workbench for data cleaning and transformation and Power BI for visualization and insight generation, the project analyzes user behavior, subscriptions, engagement, and support interactions.
@@ -50,6 +50,7 @@ Without a unified analytical view, teams struggle to pinpoint whether churn is d
 - Product analytics thinking
 
 ## Results & Business Recommendations (to be completed after analysis)
+
 ### Key Results 
 
 

@@ -4,7 +4,7 @@ SELECT * FROM nexloom_analytics.fact_invoices_payments;
                                   #################################################### FACT TABLE ####################################################
 
 -- CLEANING THE "USERS" TABLE TO ENSURE PROPER DATA QUALITY --
-CREATE TABLE fact_invoices_payments_cleaned AS
+CREATE VIEW fact_invoices_payments_cleaned AS
 -- INVOICE ID --
 SELECT 
 	TRIM(UPPER(ï»¿invoice_id)) AS invoice_id, 
@@ -108,4 +108,4 @@ END AS paid_date,
 	ELSE tax_applied
     END AS tax_applied
 
-FROM nexloom_analytics.fact_invoices_payments
+FROM nexloom_analytics.fact_invoices_payments;

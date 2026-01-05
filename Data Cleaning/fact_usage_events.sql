@@ -1,3 +1,9 @@
+-- TO VIEW ENTIRE TABLE --
+SELECT * FROM nexloom_analytics.fact_usage_events;
+
+                                  #################################################### FACT TABLE ####################################################
+-- CLEANING THE "USAGE EVENTS" TABLE TO ENSURE PROPER DATA QUALITY --
+CREATE VIEW fact_usage_events_cleaned AS
 SELECT
 -- EVENT ID --	
 	UPPER(TRIM(event_id)) AS event_id,
@@ -66,6 +72,7 @@ CREATE VIEW dim_browser AS
 SELECT DISTINCT browser
 FROM fact_usage_events 
 WHERE browser <> '';
+
 
 
 

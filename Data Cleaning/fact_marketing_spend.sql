@@ -4,7 +4,7 @@ SELECT * FROM nexloom_analytics.fact_marketing_spend;
                                   #################################################### FACT TABLE ####################################################
 
 -- CLEANING THE "USERS" TABLE TO ENSURE PROPER DATA QUALITY --
-CREATE TABLE fact_marketing_spend_cleaned AS 
+CREATE VIEW fact_marketing_spend_cleaned AS 
 -- SPEND ID -- 
 SELECT 
 	UPPER(TRIM(ï»¿spend_id)) AS spend_id, 
@@ -65,4 +65,6 @@ SELECT
 	created_at
     
 FROM nexloom_analytics.fact_marketing_spend;
+
+
 
